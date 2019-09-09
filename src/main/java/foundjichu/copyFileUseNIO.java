@@ -1,4 +1,4 @@
-package Test;
+package foundjichu;
 
 import java.io.File;
 import java.io.FileInputStream;

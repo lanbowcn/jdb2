@@ -1,7 +1,6 @@
 package Test;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @Author：lanbow
@@ -25,6 +24,11 @@ public class Main3 {
         for (int i = 0; i < n; i++) {
             num[i][0] = sc.nextInt();
             num[i][1] = sc.nextInt();
+        }
+        HashMap<Integer,Integer> x = new HashMap<>();
+        for(Map.Entry<Integer,Integer> xx:x.entrySet()){
+            System.out.println(xx.getKey());
+            System.out.println(xx.getValue());
         }
         Arrays.sort(num,(o1,o2)->o1[0]-o2[0]);
 

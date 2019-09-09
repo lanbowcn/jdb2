@@ -14,34 +14,23 @@ public class Main2 {
     //矩阵最小路径和
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int m= sc.nextInt();
-        int n = sc.nextInt();
-        int[][] map = new int[m][n];
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                map[i][j] = sc.nextInt();
-            }
+        int n = Integer.parseInt(sc.nextLine());
+        String[] x = sc.nextLine().split(" ");
+        int sum = 0;
+        for (int i = 0; i < x.length; i++) {
+            sum+=Integer.parseInt(x[i]);
         }
-
-        int res = caluMinpath(map,m,n);
-        System.out.println(res);
+        long res1 = jiechen(n);
+        long res2 = jiechen(sum);
+        long res3 = jiechen(n-sum);
+        long t = (res1/(res2*res3))%1000000007;
+        System.out.println(t);
     }
-
-    private static int caluMinpath(int[][] map, int m, int n) {
-        int[][] path = new int[m][n];
-        path[0][0] = map[0][0];
-        for (int i = 1; i < n; i++) {
-            path[0][i] = path[0][i-1]+map[0][i];
+    private static long jiechen(int a){
+        long res = 1;
+        for(int i=a;i>0;i--){
+            res*=i;
         }
-        for (int i = 1; i < m; i++) {
-            path[i][0] = path[i-1][0]+map[i][0];
-        }
-        for (int i = 1; i < m ; i++) {
-            for (int j = 1; j < n ; j++) {
-                path[i][j] = Math.min(path[i-1][j],path[i][j-1])+map[i][j];
-            }
-        }
-
-        return path[m-1][n-1];
+        return res;
     }
 }
